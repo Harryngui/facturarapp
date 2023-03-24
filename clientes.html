@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="clientes.css">
+    <title>FactureApp</title>
+	<style>
+		input:invalid {
+		  border: 2px dashed red;
+		}
+  
+		input:invalid:required {
+		  background-image: linear-gradient(to right, pink, lightgreen);
+		}
+  
+		input:valid {
+		  border: 2px solid black;
+		}
+	  </style>
+</head>
+<body>
+    <header>
+		<nav>
+			<a href="index.html" class="">Inicio</a>
+			<a href="#">Facturación</a>
+			<a href="formulario.html" class="active">Registrar clientes</a>
+			<a href="#">Maestro de clientes</a>
+			<a href="#">Listado de ventas</a>
+		</nav>
+	</header>
+
+    <form action="#" method="post">
+
+		<label for="nombre">Nombre y Apellido:</label>
+		<input type="text" placeholder="Emanuel Veron" id="nombre" name="nombre" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+" required>
+		
+		<label for="cuit">CUIT o DNI:</label>
+		<input type="text" placeholder="23-42256477-9" id="cuit-dni" name="cuit-dni" pattern="\d{8,11}" required>
+
+		<label for="razon-social">Razón social:</label>
+		<input type="text" id="razon-social" name="razon-social" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+" required>
+
+		<label for="direccion">Direccion:</label>
+		<input type="text" placeholder="Azcuenaga 76" id="direccion" name="direccion" required>
+
+		<label for="provincia">Provincia:</label>
+		<select name="provincia" id="provincia">
+			<option value="" selected>Seleccione una provincia</option>
+			<option value="Buenos Aires">Buenos Aires</option>
+			<option value="Catamarca">Catamarca</option>
+			<option value="Chaco">Chaco</option>
+			<option value="Chubut">Chubut</option>
+			<option value="Córdoba">Córdoba</option>
+			<option value="Corrientes">Corrientes</option>
+			<option value="Entre Ríos">Entre Ríos</option>
+			<option value="Formosa">Formosa</option>
+			<option value="Jujuy">Jujuy</option>
+			<option value="La Pampa">La Pampa</option>
+			<option value="La Rioja">La Rioja</option>
+			<option value="Mendoza">Mendoza</option>
+			<option value="Misiones">Misiones</option>
+			<option value="Neuquén">Neuquén</option>
+			<option value="Río Negro">Río Negro</option>
+			<option value="Salta">Salta</option>
+			<option value="San Juan">San Juan</option>
+			<option value="San Luis">San Luis</option>
+			<option value="Santa Cruz">Santa Cruz</option>
+			<option value="Santa Fe">Santa Fe</option>
+			<option value="Santiago del Estero">Santiago del Estero</option>
+			<option value="Tierra del Fuego">Tierra del Fuego</option>
+			<option value="Tucumán">Tucumán</option>
+		</select>
+
+		<label for="ciudad">Ciudad:</label>
+		<input type="text" placeholder="Quilmes" id="ciudad" name="ciudad" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+" required>
+
+        <label for="codigo-postal">Código postal:</label>
+		<input type="number" placeholder="1878" id="codigo-postal" name="codigo-postal" pattern="\d{4}" required>
+
+		<label for="correo">Correo electrónico:</label>
+		<input type="email" placeholder="mmm@hotmail.com" id="correo" name="correo" required>
+
+		<label for="telefono">Telefono:</label>
+		<input type="number" placeholder="1111111111" id="telefono" name="telefono" pattern="[0-9]{10}" required>
+		
+		<label for="contrasena">Contraseña:</label>
+		<input type="password" id="contrasena" name="contrasena" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+,-./:;<=>?@[\\]^_`{|}~])(?=.*[a-zA-Z]).{8,}" required>
+
+		<label>Tipo de contribuyente:</label>
+		<input type="checkbox" id="monotributo" name="tipo-contribuyente[]" value="monotributo" onclick="exclusivo(this)">
+		<label for="monotributo">Monotributo</label>
+
+		<input type="checkbox" id="inscripto" name="tipo-contribuyente[]" value="inscripto" onclick="exclusivo(this)">
+		<label for="inscripto">Inscripto</label>
+
+		<input type="checkbox" id="excento" name="tipo-contribuyente[]" value="excento" onclick="exclusivo(this)">
+		<label for="excento">Excento</label>
+
+		<input type="checkbox" id="consumidor-final" name="tipo-contribuyente[]" value="consumidor-final" onclick="exclusivo(this)">
+		<label for="consumidor-final">Consumidor final</label>
+
+		<button type="submit">Enviar</button>
+	</form>
+
+	<script>
+		document.querySelector('form').addEventListener('submit', function(event) {
+			var provincia = document.getElementById('provincia').value;
+			if (provincia === "") {
+				alert("Debe seleccionar una provincia.");
+				event.preventDefault();
+			}
+		});
+	</script>
+
+
+	<script src="./clientes.js"></script>	
+</body>
+</html>

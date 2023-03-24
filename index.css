@@ -1,0 +1,87 @@
+cuerpo {
+    color de fondo :  # 0072C6 ;
+    color : blanco;
+    familia de fuentes : Arial , sans-serif;
+    margen :  0 ;
+}
+
+/* Encabezado */
+encabezado {
+    color de fondo :  # 5D8AA8 ;
+    relleno :  10 px ;
+    posición : relativa;
+    desbordamiento : oculto;
+}
+
+/* pestañas */
+navegación {
+    pantalla : flexible;
+    justificar-contenido : centro;
+    alinear elementos : centro;
+}
+
+navegar  un {
+    pantalla : bloque;
+    color : blanco;
+    alineación de texto : centro;
+    relleno :  14 px  16 px ;
+    decoración de texto : ninguno;
+    tamaño de fuente :  18 px ;
+    borde inferior :  3 px sólido transparente;
+    transición : borde-color 0.3 s ;
+}
+
+nav  a . activo ,  nav  a : hover {
+    borde inferior :  3 px blanco sólido;
+}
+
+/*Contenido*/
+. contenido {
+    margen :  10 px ;
+    relleno :  20 px ;
+    margen superior :  20 px ;
+    color de fondo : blanco;
+    color : negro;
+    borde-radio :  5 px ;
+}
+
+/* Estilos para dispositivos pequeños */
+@media  solo pantalla y ( ancho máximo :  767 px ) {
+    navegación {
+        envoltura flexible : envoltura;
+    }
+
+    navegar  un {
+        flexión :  1  0  100 % ;
+        margen inferior :  10 px ;
+    }
+}
+
+/* Estilos para dispositivos medianos */
+@media  solo pantalla y ( ancho mínimo :  768 px ) y ( ancho máximo :  991 px ) {
+    navegar  un {
+        tamaño de fuente :  16 px ;
+    }
+}
+
+/* Estilos para dispositivos grandes */
+@media  solo pantalla y ( ancho mínimo :  992 px ) {
+    navegar  un {
+        posición : relativa;
+    }
+
+    nav  a :: antes de {
+        contenido :  "" ;
+        posición : absoluta;
+        arriba :  100 % ;
+        izquierda :  50 % ;
+        margen izquierdo :  -5 px ;
+        ancho del borde :  5 px ;
+        estilo de borde : sólido;
+        border-color : blanco transparente transparente transparente;
+    }
+
+    nav  a : flotar :: antes de {
+        arriba :  calc ( 100 %  +  3 px );
+    }
+}
